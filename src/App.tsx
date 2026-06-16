@@ -226,7 +226,7 @@ export default function App() {
         setIsMusicPlaying(true);
       }
     } catch {
-      setToast("Music file not found — add one at /public/music/romance.mp3");
+      setToast("Music file not found — check /public/music/ for the audio file.");
     }
   };
 
@@ -344,8 +344,7 @@ export default function App() {
       {/* Background audio — Chopin, Waltz in A minor (B.150). Public domain / CC0.
           Swap the files in /public/music to use your own track. */}
       <audio ref={audioRef} loop preload="none">
-        <source src="/music/romance.ogg" type="audio/ogg" />
-        <source src="/music/romance.mp3" type="audio/mpeg" />
+        <source src="/music/IT'S YOU (feat. keshi).mp3" type="audio/mpeg" />
       </audio>
 
       {/* NAVIGATION */}
@@ -494,8 +493,8 @@ export default function App() {
               className="max-w-5xl w-full flex flex-col items-center"
             >
               <img
-                src={`/images/gallery-${lightbox}.jpg`}
-                alt={`Cherished moment ${lightbox} of Aharshana and Jhon`}
+                src={`/images/couple/${lightbox}.jpeg`}
+                alt={`Cherished moment ${lightbox} of Marcos and Aharshana`}
                 className="max-h-[80vh] w-auto max-w-full object-contain rounded-sm shadow-2xl"
               />
               <figcaption className="mt-5 text-white/60 text-[11px] font-montserrat uppercase tracking-[0.3em]">
@@ -541,9 +540,9 @@ export default function App() {
             </p>
 
             <h1 className="font-display text-editorial-brown leading-[0.95] mb-6">
-              <span className="block text-7xl md:text-8xl lg:text-9xl">{BRIDE.split(" ")[0]}</span>
+              <span className="block text-7xl md:text-8xl lg:text-9xl">Marcos</span>
               <span className="block text-5xl md:text-6xl text-editorial-gold my-1">&amp;</span>
-              <span className="block text-7xl md:text-8xl lg:text-9xl">{GROOM.split(" ")[0]}</span>
+              <span className="block text-7xl md:text-8xl lg:text-9xl">{BRIDE.split(" ")[0]}</span>
             </h1>
 
             <div className="flex justify-center md:justify-start items-center gap-5 mb-10">
@@ -638,9 +637,9 @@ export default function App() {
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-editorial-gold/20 transform -translate-x-1/2 hidden md:block" />
 
           {[
-            { date: "August 2021", title: "The Meeting", text: "A chance encounter that changed everything. Two worlds colliding in a beautiful sunrise of emotions.", side: "left" },
-            { date: "October 2022", title: "The Vow", text: "Under the stars, amidst the whispers of cherry blossoms, he asked and she said yes to forever.", side: "right" },
-            { date: "March 2024", title: "The Journey", text: "Planning our future, piece by piece, heart to heart. Every moment becoming a precious memory.", side: "left" },
+            { date: "August 2020", title: "The Meeting", text: "Sometimes the most beautiful love stories begin when you least expect them. What started with simple conversations and shared moments soon grew into a deep connection. Through laughter, trust, and countless memories, our hearts found their way to each other, beginning a journey that would change our lives forever. ❤️", side: "left" },
+            { date: "November 15, 2025", title: "The Vow", text: "On this special day, we promised our hearts to one another and chose a lifetime of love, laughter, and endless adventures together. With hope in our hearts and dreams for the future, we began the journey toward our forever. ❤️✨", side: "right" },
+            { date: "August 22, 2026", title: "The Forever", text: "Today, we say \"I do\" and begin a new chapter together. Hand in hand and heart to heart, we celebrate a bond built on friendship, trust, and endless devotion. Our forever starts here. ❤️✨", side: "left" },
           ].map((item, idx) => (
             <div key={idx} className={`relative mb-24 md:flex items-center justify-between ${item.side === "right" ? "md:flex-row-reverse" : ""}`}>
               <motion.div
@@ -828,15 +827,13 @@ export default function App() {
                 aria-label={isLoaded ? `Enlarge photo ${n}` : `Photo ${n} placeholder`}
                 className={`aspect-square relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-editorial-gold/30 transition-all ${isLoaded ? "cursor-zoom-in" : "cursor-default"}`}
               >
-                {/* Elegant placeholder sits behind the photo; shown if the photo is missing */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-linear-to-br from-editorial-peach to-editorial-blush text-editorial-goldink">
                   <Camera className="w-7 h-7 opacity-50" />
                   <span className="text-[10px] font-montserrat uppercase tracking-[0.25em] opacity-60">Photo {n}</span>
                 </div>
-                {/* Drop your photos in /public/images as gallery-1.jpg … gallery-8.jpg */}
                 <img
-                  src={`/images/gallery-${n}.jpg`}
-                  alt={`Cherished moment ${n} of Aharshana and Jhon`}
+                  src={`/images/couple/${n}.jpeg`}
+                  alt={`Cherished moment ${n} of Marcos and Aharshana`}
                   loading="lazy"
                   onLoad={() => setLoadedPhotos((prev) => (prev.includes(n) ? prev : [...prev, n]))}
                   onError={(e) => {
