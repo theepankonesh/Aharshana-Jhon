@@ -31,15 +31,13 @@ import confetti from "canvas-confetti";
 // Constants & Data
 const WEDDING_DATE = "2026-08-22T13:00:00";
 const BRIDE = "Aharshana Raashasingham";
-const GROOM = "Jhon Marcos Mena Perez";
+const GROOM = "Marcos Mena Perez";
 
 // Formspree handles RSVP + Wish submissions (one shared form, distinguished by
 // a hidden `type` field). Set VITE_FORMSPREE_ID in your Vercel env vars to the
 // ID from your Formspree endpoint (the part after /f/).
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
-const FORMSPREE_ENDPOINT = FORMSPREE_ID
-  ? `https://formspree.io/f/${FORMSPREE_ID}`
-  : null;
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "mlgkqqbz";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 // The wishes wall is curated: submitted wishes arrive in your Formspree
 // dashboard, and you copy your favourites into this list to display them here.
@@ -335,7 +333,7 @@ export default function App() {
     );
   }
 
-  const initials = `${BRIDE[0]} & ${GROOM[0]}`;
+  const initials = `M & A`;
 
   return (
     <div className="relative font-sans overflow-x-hidden selection:bg-editorial-pink/30">
@@ -604,7 +602,7 @@ export default function App() {
                 >
                   <img
                     src="/images/WED.jpg"
-                    alt="Aharshana and Jhon at their wedding ceremony in the cathedral"
+                    alt="Marcos and Aharshana at their wedding ceremony in the cathedral"
                     fetchPriority="high"
                     className="w-full aspect-[4/5] object-cover object-top"
                   />
@@ -880,7 +878,7 @@ export default function App() {
                     <label htmlFor="rsvp-count" className="block text-xs uppercase tracking-[0.3em] font-bold text-editorial-gold mb-2">Party Size</label>
                     <div className="relative">
                       <select id="rsvp-count" name="guestCount" className="editorial-input border-white/40 text-white appearance-none cursor-pointer">
-                        {[1, 2, 3, 4, 5].map((n) => (
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
                           <option key={n} value={n} className="text-black">{n} Guest{n > 1 ? "s" : ""}</option>
                         ))}
                       </select>
